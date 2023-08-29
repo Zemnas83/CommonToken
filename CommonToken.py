@@ -3,7 +3,7 @@ from nltk.tokenize import TweetTokenizer
 import string
 from collections import Counter
 
-def tokenize_and_count(filename):  # Renamed this function
+def tokenize_and_count(filename):  
     tokenizer = TweetTokenizer()
     
     with open(filename, 'r') as fn:
@@ -21,10 +21,11 @@ def main():
         return
     
     filename = sys.argv[1]
-    word_freq = tokenize_and_count(filename)  # This call matches the function name now
+    word_freq = tokenize_and_count(filename)  
     
     # Print word frequencies in decreasing order
-    for word, freq in word_freq.most_common():
+    
+    for word, freq in word_freq.most_common(10):
         print(f"{word}    {freq}")
 
 if __name__ == "__main__":
